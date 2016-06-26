@@ -1,5 +1,3 @@
-local names = {'Infobox Slovenská obec', 'V jazyku'} -- list of support templates
-
 local p = {}
 
 function defaultize(args, ilist) -- set default values for output parameters
@@ -60,7 +58,7 @@ function call(frame, name) -- does the actual transformation by using the respec
 end
 
 local name
-for _, name in ipairs(names) do -- create an associative array of lambda functions, corresponding to one supported template each
+for _, name in ipairs(_G.templates) do -- create an associative array of lambda functions, corresponding to one supported template each
 	p[name] = function(frame)
 		return call(frame, name)
 	end
